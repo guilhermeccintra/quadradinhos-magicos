@@ -519,6 +519,33 @@ section {
     padding-top: 2rem;
 }
 
+/* 9. FAQ */
+.faq-grid {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+.faq-question {
+    font-size: 1.25rem;
+    color: var(--primary-blue-dark);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+}
+
+.faq-answer {
+    color: var(--text-medium);
+}
+
 .mobile-only {
     display: none;
 }
