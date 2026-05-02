@@ -1,71 +1,93 @@
-// Optional: Add simple interactions to make the page feel alive
+// ===========================
+// TOP BAR: Data e Countdown até Meia-Noite
+// ===========================
+function formatDate(d) {
+    const days = ['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'];
+    const months = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+    return `${d.getDate()} de ${months[d.getMonth()]}`;
+}
 
+function updateCountdown() {
+    const now = new Date();
+    const midnight = new Date(now);
+    midnight.setHours(24, 0, 0, 0);
+    const diff = midnight - now;
+
+    const h = String(Math.floor(diff / 3600000)).padStart(2, '0');
+    const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+    const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+
+    const el = document.getElementById('countdown');
+    if (el) el.textContent = `${h}:${m}:${s}`;
+}
+
+function initTopBar() {
+    const now = new Date();
+    // Set date in topbar
+    document.querySelectorAll('#topbarDate').forEach(el => el.textContent = formatDate(now));
+    // Set date in bonus section
+    document.querySelectorAll('.bonus-today-date').forEach(el => el.textContent = formatDate(now));
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+}
+
+// ===========================
+// UPSELL MODAL
+// ===========================
+function showUpsellModal(e) {
+    e.preventDefault();
+    document.getElementById('upsellModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeUpsellModal() {
+    document.getElementById('upsellModal').classList.remove('active');
+    document.body.style.overflow = '';
+    // Redirect to basic plan link
+    window.location.href = 'LINK_BASICO_AQUI';
+}
+
+// Close modal on overlay click
 document.addEventListener('DOMContentLoaded', () => {
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
+    initTopBar();
+
+    document.getElementById('upsellModal').addEventListener('click', function(e) {
+        if (e.target === this) closeUpsellModal();
     });
 
-    // Add a simple intersection observer to trigger animations when scrolling
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
+    // Scroll animations
+    const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
+                obs.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1 });
 
-    // Apply fade-in to section titles and cards
-    const elementsToAnimate = document.querySelectorAll('.section-title, .benefit-card, .step, .diff-item, .gallery-item');
-    
-    elementsToAnimate.forEach(el => {
+    document.querySelectorAll('.section-title, .benefit-card, .bonus-card, .pricing-card, .faq-item').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        el.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
         observer.observe(el);
     });
 
-    // --- Meta Conversions API Trigger ---
+    // Meta CAPI
     function sendCAPIEvent(eventName) {
-        // Generate a unique ID for deduplication (matches pixel event if we were sending custom events via pixel too)
         const eventId = 'evt_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
-        
         fetch('/api/conversions', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                eventName: eventName,
-                eventId: eventId,
+                eventName,
+                eventId,
                 eventSourceUrl: window.location.href,
                 clientUserAgent: navigator.userAgent,
-                // In a real production setup, you would grab IP from the backend, not frontend.
-                // The local Node server should ideally capture req.ip, but for this basic setup we pass it like this.
             })
-        })
-        .then(response => response.json())
-        .then(data => console.log('CAPI Event Sent:', data))
-        .catch(error => console.error('Error sending CAPI Event:', error));
+        }).catch(() => {});
     }
 
-    // Trigger PageView on load via API
     sendCAPIEvent('PageView');
 });

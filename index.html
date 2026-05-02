@@ -4,18 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Quadradinhos Mágicos - Mais de 100 artes de pintar por números para crianças. Atividade educativa e divertida que estimula a criatividade e reduz o tempo de tela.">
+    <meta name="description" content="Quadradinhos Mágicos - Mais de 100 artes de pintar por números para crianças. Atividade educativa e divertida que estimula a criatividade e reduz o tempo de tela.">
     <title>Quadradinhos Mágicos - Pinte por Números</title>
 
-    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Playful Fonts: Fredoka for headings, Nunito for body -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
     <!-- Meta Pixel Code -->
@@ -41,22 +35,33 @@
 
 <body>
 
+    <!-- TOP BAR: Data + Countdown + Bônus -->
+    <div class="topbar" id="topbar">
+        <div class="topbar-inner">
+            <span class="topbar-gift">🎁</span>
+            <span class="topbar-text">
+                <strong>Oferta de hoje (<span id="topbarDate"></span>):</strong>
+                Garanta agora e ganhe <strong>3 Bônus Exclusivos!</strong>
+                Disponível por mais <strong id="countdown">00:00:00</strong>
+            </span>
+            <span class="topbar-gift">🎁</span>
+        </div>
+    </div>
+
     <!-- 1. HERO SECTION -->
     <header class="hero">
         <div class="container hero-content">
             <div class="hero-text">
                 <span class="badge bounce">✨ Super Divertido! ✨</span>
                 <h1>Quadradinhos<br><span class="highlight">Mágicos</span></h1>
-                <h2>Complete os quadradinhos e descubra a imagem escondida!</h2>
+                <h2>Pinte os quadradinhos e descubra a imagem escondida!</h2>
 
                 <div class="hero-image mobile-only">
                     <img src="assets/hero-mockup-new.webp" alt="Livro Quadradinhos Mágicos" fetchpriority="high">
                 </div>
 
-                <p class="highlight-text">São <strong>mais de 100 artes</strong> de quadradinhos mágicos!</p>
-                <div class="price-tag-small">Apenas <strong>R$ 19,90</strong></div>
-                <a href="https://pay.lowify.com.br/checkout?product_id=jIjV2c" class="btn btn-primary pulse">Quero
-                    começar agora! 🎨</a>
+                <p class="highlight-text">São <strong>mais de 100 artes imprimíveis!</strong></p>
+                <a href="#comprar" class="btn btn-primary pulse">Quero começar agora! 🎨</a>
             </div>
             <div class="hero-image desktop-only">
                 <img src="assets/hero-mockup-new.webp" alt="Livro Quadradinhos Mágicos" fetchpriority="high">
@@ -68,38 +73,50 @@
     <section class="product-preview bg-white">
         <div class="container text-center">
             <h2 class="section-title">Veja por dentro! 👀</h2>
-            <p class="section-subtitle" style="margin-top:-2rem; margin-bottom:2rem;">Mais de 100 artes esperando pela sua criança</p>
+            <p class="section-subtitle" style="margin-top:-2rem; margin-bottom:2rem;">Mais de 100 artes esperando pela sua criança.</p>
         </div>
         <div class="carousel-wrapper">
-            <div class="carousel-track" id="carouselTrack">
-                <!-- Duplicated for seamless infinite loop -->
-                <div class="carousel-slide"><img src="assets/01.webp" alt="Arte 1 - Quadradinhos Mágicos" loading="lazy"></div>
-                <div class="carousel-slide"><img src="assets/02.webp" alt="Arte 2 - Quadradinhos Mágicos" loading="lazy"></div>
-                <div class="carousel-slide"><img src="assets/03.webp" alt="Arte 3 - Quadradinhos Mágicos" loading="lazy"></div>
-                <div class="carousel-slide"><img src="assets/04.webp" alt="Arte 4 - Quadradinhos Mágicos" loading="lazy"></div>
-                <div class="carousel-slide"><img src="assets/05.webp" alt="Arte 5 - Quadradinhos Mágicos" loading="lazy"></div>
-                <div class="carousel-slide"><img src="assets/06.webp" alt="Arte 6 - Quadradinhos Mágicos" loading="lazy"></div>
-                <div class="carousel-slide"><img src="assets/07.webp" alt="Arte 7 - Quadradinhos Mágicos" loading="lazy"></div>
-                <div class="carousel-slide"><img src="assets/08.webp" alt="Arte 8 - Quadradinhos Mágicos" loading="lazy"></div>
-                <div class="carousel-slide"><img src="assets/09.webp" alt="Arte 9 - Quadradinhos Mágicos" loading="lazy"></div>
-                <!-- Duplicate set for seamless loop -->
-                <div class="carousel-slide"><img src="assets/01.webp" alt="Arte 1 - Quadradinhos Mágicos" loading="lazy"></div>
-                <div class="carousel-slide"><img src="assets/02.webp" alt="Arte 2 - Quadradinhos Mágicos" loading="lazy"></div>
-                <div class="carousel-slide"><img src="assets/03.webp" alt="Arte 3 - Quadradinhos Mágicos" loading="lazy"></div>
-                <div class="carousel-slide"><img src="assets/04.webp" alt="Arte 4 - Quadradinhos Mágicos" loading="lazy"></div>
-                <div class="carousel-slide"><img src="assets/05.webp" alt="Arte 5 - Quadradinhos Mágicos" loading="lazy"></div>
-                <div class="carousel-slide"><img src="assets/06.webp" alt="Arte 6 - Quadradinhos Mágicos" loading="lazy"></div>
-                <div class="carousel-slide"><img src="assets/07.webp" alt="Arte 7 - Quadradinhos Mágicos" loading="lazy"></div>
-                <div class="carousel-slide"><img src="assets/08.webp" alt="Arte 8 - Quadradinhos Mágicos" loading="lazy"></div>
-                <div class="carousel-slide"><img src="assets/09.webp" alt="Arte 9 - Quadradinhos Mágicos" loading="lazy"></div>
+            <div class="carousel-track">
+                <div class="carousel-slide"><img src="assets/01.webp" alt="Arte 1" loading="lazy"></div>
+                <div class="carousel-slide"><img src="assets/02.webp" alt="Arte 2" loading="lazy"></div>
+                <div class="carousel-slide"><img src="assets/03.webp" alt="Arte 3" loading="lazy"></div>
+                <div class="carousel-slide"><img src="assets/04.webp" alt="Arte 4" loading="lazy"></div>
+                <div class="carousel-slide"><img src="assets/05.webp" alt="Arte 5" loading="lazy"></div>
+                <div class="carousel-slide"><img src="assets/06.webp" alt="Arte 6" loading="lazy"></div>
+                <div class="carousel-slide"><img src="assets/07.webp" alt="Arte 7" loading="lazy"></div>
+                <div class="carousel-slide"><img src="assets/08.webp" alt="Arte 8" loading="lazy"></div>
+                <div class="carousel-slide"><img src="assets/09.webp" alt="Arte 9" loading="lazy"></div>
+                <!-- Duplicado para loop infinito -->
+                <div class="carousel-slide"><img src="assets/01.webp" alt="Arte 1" loading="lazy"></div>
+                <div class="carousel-slide"><img src="assets/02.webp" alt="Arte 2" loading="lazy"></div>
+                <div class="carousel-slide"><img src="assets/03.webp" alt="Arte 3" loading="lazy"></div>
+                <div class="carousel-slide"><img src="assets/04.webp" alt="Arte 4" loading="lazy"></div>
+                <div class="carousel-slide"><img src="assets/05.webp" alt="Arte 5" loading="lazy"></div>
+                <div class="carousel-slide"><img src="assets/06.webp" alt="Arte 6" loading="lazy"></div>
+                <div class="carousel-slide"><img src="assets/07.webp" alt="Arte 7" loading="lazy"></div>
+                <div class="carousel-slide"><img src="assets/08.webp" alt="Arte 8" loading="lazy"></div>
+                <div class="carousel-slide"><img src="assets/09.webp" alt="Arte 9" loading="lazy"></div>
             </div>
         </div>
     </section>
 
-    <!-- 3. BLOCO DE BENEFÍCIOS -->
+    <!-- 3. PARA QUEM É -->
+    <section class="who-is-it-for bg-blue-light">
+        <div class="container">
+            <h2 class="section-title">Para quem é o Quadradinhos Mágicos? 🤔</h2>
+            <ul class="checklist text-center-box">
+                <li>✔️ <strong>Crianças</strong> a partir de 4 anos de idade.</li>
+                <li>✔️ <strong>Pais</strong> que buscam atividades saudáveis e educativas.</li>
+                <li>✔️ <strong>Pequenos artistas</strong> que adoram desenhar e pintar.</li>
+                <li>✔️ <strong>Famílias</strong> que querem reduzir o uso excessivo de telas.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 4. O QUE TORNA ESTE MATERIAL ESPECIAL (antigo Por que as crianças amam) -->
     <section class="benefits bg-yellow" id="beneficios">
         <div class="container">
-            <h2 class="section-title">Por que as crianças amam? 😍</h2>
+            <h2 class="section-title">O que torna este material especial? 🌟</h2>
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="icon-wrapper bg-blue">🎨</div>
@@ -112,7 +129,7 @@
                     <p>Foca a atenção da criança ao preencher os números corretos.</p>
                 </div>
                 <div class="benefit-card">
-                    <div class="icon-wrapper bg-green">🚫📱</div>
+                    <div class="icon-wrapper bg-green">📵</div>
                     <h3>Reduz tempo de tela</h3>
                     <p>Uma atividade offline e saudável, longe dos celulares.</p>
                 </div>
@@ -125,127 +142,122 @@
         </div>
     </section>
 
-    <!-- 3. COMO FUNCIONA -->
-    <section class="how-it-works bg-white">
+    <!-- 5. BÔNUS EXCLUSIVOS -->
+    <section class="bonus-section bg-white" id="bonus">
         <div class="container">
-            <h2 class="section-title">É muito fácil brincar! 🎈</h2>
-            <div class="steps-grid">
-                <div class="step">
-                    <div class="step-number bg-yellow">1</div>
-                    <h3>Escolha</h3>
-                    <p>Escolha um dos mais de 100 desenhos incríveis.</p>
+            <div class="bonus-header">
+                <span class="bonus-badge">🎁 Bônus Exclusivos de Hoje</span>
+                <h2 class="section-title" style="margin-bottom:0.5rem;">Garanta hoje e leve <span class="highlight-purple">3 Bônus Grátis!</span></h2>
+                <p class="bonus-date-note">Estes bônus estão disponíveis <strong>somente hoje, <span class="bonus-today-date"></span></strong></p>
+            </div>
+
+            <div class="bonus-grid">
+                <div class="bonus-card">
+                    <div class="bonus-number">BÔNUS 1</div>
+                    <div class="bonus-icon">🖍️</div>
+                    <h3>Desenhos Gigantes para Colorir</h3>
+                    <p>Páginas com desenhos maiores estilo <strong>livro de colorir</strong>, com temas infantis: animais, dinossauros, princesas e carros.</p>
+                    <ul class="bonus-bullets">
+                        <li>👉 Mantém a criança entretida por mais tempo</li>
+                        <li>👉 Perfeito para momentos mais relax (sem foco em números)</li>
+                    </ul>
+                    <p class="bonus-quote">"Quando a criança quiser só se divertir pintando, sem seguir regras, ela também vai ter essa opção."</p>
                 </div>
-                <div class="step">
-                    <div class="step-number bg-blue">2</div>
-                    <h3>Siga</h3>
-                    <p>Observe a legenda de cores e números.</p>
+
+                <div class="bonus-card">
+                    <div class="bonus-number">BÔNUS 2</div>
+                    <div class="bonus-icon">🔢</div>
+                    <h3>Jogo dos Números Divertidos</h3>
+                    <p>Atividades simples e interativas com números:</p>
+                    <ul class="bonus-bullets">
+                        <li>👉 Ligar pontos</li>
+                        <li>👉 Completar sequências</li>
+                        <li>👉 Mini desafios numéricos</li>
+                    </ul>
+                    <p class="bonus-quote">"Enquanto se diverte, a criança também desenvolve raciocínio e aprende números de forma leve."</p>
                 </div>
-                <div class="step">
-                    <div class="step-number bg-green">3</div>
-                    <h3>Pinte</h3>
-                    <p>Pinte os quadradinhos correspondentes.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number bg-purple">4</div>
-                    <h3>Descubra</h3>
-                    <p>Surpreenda-se com a imagem final!</p>
+
+                <div class="bonus-card">
+                    <div class="bonus-number">BÔNUS 3</div>
+                    <div class="bonus-icon">🏆</div>
+                    <h3>Desafio dos 7 Dias de Pintura</h3>
+                    <p>Um mini plano com <strong>1 atividade por dia</strong>, gerando sensação de progresso e um <strong>certificado</strong> ao final!</p>
+                    <ul class="bonus-bullets">
+                        <li>👉 Cria uma rotina divertida</li>
+                        <li>👉 Prende mais a atenção</li>
+                        <li>👉 Aumenta o uso do produto</li>
+                    </ul>
+                    <p class="bonus-quote">"Um desafio divertido para manter a criança engajada todos os dias."</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. PROVA VISUAL (Galeria) -->
-    <section class="gallery bg-blue-light">
-        <div class="container">
-            <h2 class="section-title">Olha só a mágica acontecendo! ✨</h2>
+    <!-- 6. CERTIFICADO DE PEQUENO ARTISTA -->
+    <section class="certificate-section bg-blue-light">
+        <div class="container text-center">
+            <h2 class="section-title">Certificado de Pequeno Artista 🏅</h2>
+            <p class="section-subtitle" style="margin-top:-2rem; margin-bottom:2.5rem;">Ao completar o Desafio dos 7 Dias, sua criança ganha um certificado especial para imprimir e guardar!</p>
+            <div class="certificate-img-wrapper">
+                <img src="assets/certificate.png" alt="Certificado de Pequeno Artista" loading="lazy">
+            </div>
+        </div>
+    </section>
 
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <div class="image-comparison">
-                        <img src="assets/example-dino-ptbr.png" alt="Dinossauro Pixel Art" loading="lazy">
-                    </div>
-                    <p class="image-caption">Dinossauro Radical 🦖</p>
-                </div>
-                <div class="gallery-item">
-                    <div class="image-comparison">
-                        <img src="assets/example-unicorn-ptbr.png" alt="Unicórnio Pixel Art" loading="lazy">
-                    </div>
-                    <p class="image-caption">Unicórnio Mágico 🦄</p>
+    <!-- 7. GARANTIA -->
+    <section class="guarantee-section bg-white">
+        <div class="container text-center">
+            <div class="guarantee-box">
+                <div class="guarantee-icon">🛡️</div>
+                <div>
+                    <h3>Garantia de 7 Dias</h3>
+                    <p>Se a criança não gostar, devolvemos <strong>100%</strong> do seu dinheiro. Sem complicação, sem burocracia!</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. PARA QUEM É -->
-    <section class="who-is-it-for bg-white">
-        <div class="container">
-            <h2 class="section-title text-center">Para quem é o Quadradinhos Mágicos? 🤔</h2>
-            <ul class="checklist text-center-box">
-                <li>✔️ <strong>Crianças</strong> a partir de 4 anos de idade.</li>
-                <li>✔️ <strong>Pais</strong> que buscam atividades saudáveis e educativas.</li>
-                <li>✔️ <strong>Pequenos artistas</strong> que adoram desenhar e pintar.</li>
-                <li>✔️ <strong>Famílias</strong> que querem reduzir o uso excessivo de telas.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- 6. DIFERENCIAIS -->
-    <section class="differentials bg-purple text-white">
-        <div class="container">
-            <h2 class="section-title text-white">O que torna este material especial? 🌟</h2>
-            <div class="diff-grid">
-                <div class="diff-item">
-                    <span class="diff-icon">🎨</span>
-                    <h4>+100 Artes Exclusivas</h4>
-                    <p>Conteúdo vasto para muitas horas de diversão garantida.</p>
-                </div>
-                <div class="diff-item">
-                    <span class="diff-icon">🖨️</span>
-                    <h4>Fácil de Imprimir</h4>
-                    <p>Formato otimizado, pronto para imprimir em casa quantas vezes quiser.</p>
-                </div>
-                <div class="diff-item">
-                    <span class="diff-icon">🖍️</span>
-                    <h4>Use o que tiver</h4>
-                    <p>Fica lindo com lápis de cor, giz de cera ou canetinhas.</p>
-                </div>
-                <div class="diff-item">
-                    <span class="diff-icon">📶</span>
-                    <h4>100% Offline</h4>
-                    <p>Baixou, imprimiu, brincou! Não precisa de internet.</p>
-                </div>
-            </div>
-        </div>
-        <!-- Decorative waves bottom -->
-        <div class="wave wave-bottom">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                preserveAspectRatio="none">
-                <path
-                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-                    class="shape-fill"></path>
-            </svg>
-        </div>
-    </section>
-
-    <!-- 8. CTA FORTE -->
-    <section class="cta-section bg-white" id="comprar">
+    <!-- 8. CTA / PRICING -->
+    <section class="cta-section bg-yellow" id="comprar">
         <div class="container text-center">
             <h2 class="section-title">Chegou a hora da diversão! 🎉</h2>
-            <p class="cta-subtitle">Garanta agora o acesso a todo esse material exclusivo e comece a brincadeira hoje
-                mesmo.</p>
+            <p class="cta-subtitle">Escolha seu pacote e comece a brincadeira hoje mesmo!</p>
 
-            <div class="price-box">
-                <span class="price-label">Acesso Imediato a +100 Artes</span>
-                <div class="price-tag-large">Apenas <strong>R$ 19,90</strong></div>
-                <a href="https://pay.lowify.com.br/checkout?product_id=jIjV2c"
-                    class="btn btn-primary btn-large pulse-fast">Quero liberar as +100 artes agora 🔓</a>
-                <p class="secure-checkout">🔒 Compra 100% segura e acesso instantâneo</p>
+            <div class="pricing-grid">
+                <!-- Plano Básico -->
+                <div class="pricing-card">
+                    <div class="plan-label">Plano Básico</div>
+                    <h3 class="plan-name">Quadradinhos Mágicos</h3>
+                    <ul class="plan-includes">
+                        <li>✅ +100 Artes Imprimíveis</li>
+                    </ul>
+                    <div class="plan-price">R$ <strong>14,90</strong></div>
+                    <a href="#" class="btn btn-outline" id="btnBasico" onclick="showUpsellModal(event)">Quero o Básico 🎨</a>
+                    <p class="plan-secure">🔒 Acesso imediato</p>
+                </div>
+
+                <!-- Plano Completo -->
+                <div class="pricing-card pricing-card--featured">
+                    <div class="plan-badge-top">⭐ MAIS POPULAR</div>
+                    <div class="plan-label">Plano Completo</div>
+                    <h3 class="plan-name">Quadradinhos Mágicos + 3 Bônus</h3>
+                    <ul class="plan-includes">
+                        <li>✅ +100 Artes Imprimíveis</li>
+                        <li>✅ Bônus 1: Desenhos Gigantes para Colorir</li>
+                        <li>✅ Bônus 2: Jogo dos Números Divertidos</li>
+                        <li>✅ Bônus 3: Desafio dos 7 Dias de Pintura</li>
+                        <li>✅ Certificado de Pequeno Artista</li>
+                    </ul>
+                    <div class="plan-price">R$ <strong>29,90</strong></div>
+                    <a href="https://pay.lowify.com.br/checkout?product_id=jIjV2c" class="btn btn-primary btn-large pulse-fast">Quero tudo + Bônus 🔓</a>
+                    <p class="plan-secure">🔒 Acesso imediato e garantia de 7 dias</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- 9. PERGUNTAS FREQUENTES -->
-    <section class="faq-section bg-blue-light" id="faq">
+    <section class="faq-section bg-white" id="faq">
         <div class="container">
             <h2 class="section-title">Perguntas Frequentes ❓</h2>
             <div class="faq-grid">
@@ -269,12 +281,32 @@
         </div>
     </section>
 
-    <!-- 10. RODAPÉ -->
-    <footer class="footer bg-gray" style="padding: 2rem 0;">
+    <!-- RODAPÉ -->
+    <footer class="footer bg-gray">
         <div class="container text-center">
-            <p class="copyright" style="border-top: none; padding-top: 0;">&copy; 2026 Quadradinhos Mágicos. Todos os direitos reservados.</p>
+            <p class="copyright">&copy; 2026 Quadradinhos Mágicos. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <!-- MODAL DE UPSELL -->
+    <div class="modal-overlay" id="upsellModal">
+        <div class="modal-box">
+            <div class="modal-badge">🎁 Oferta Especial!</div>
+            <h3>Espera! Temos uma oferta exclusiva para você</h3>
+            <p>Leve o <strong>Plano Completo</strong> com todos os 3 Bônus + Certificado por apenas:</p>
+            <div class="modal-price">R$ <strong>19,90</strong> <span class="modal-old-price">de R$ 29,90</span></div>
+            <p class="modal-savings">Você economiza R$ 10,00 agora!</p>
+            <ul class="modal-includes">
+                <li>✅ +100 Artes Imprimíveis</li>
+                <li>✅ Bônus 1: Desenhos Gigantes para Colorir</li>
+                <li>✅ Bônus 2: Jogo dos Números Divertidos</li>
+                <li>✅ Bônus 3: Desafio dos 7 Dias de Pintura</li>
+                <li>✅ Certificado de Pequeno Artista</li>
+            </ul>
+            <a href="LINK_COMPLETO_AQUI" class="btn btn-primary" style="width:100%; display:block; margin-bottom:1rem;">Sim! Quero tudo por R$ 19,90 🎉</a>
+            <button class="btn-link-subtle" onclick="closeUpsellModal()">Não, obrigado. Quero apenas o básico por R$ 14,90</button>
+        </div>
+    </div>
 
     <script src="script.js" defer></script>
 </body>
