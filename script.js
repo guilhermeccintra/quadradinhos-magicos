@@ -2,8 +2,7 @@
 // TOP BAR: Data e Countdown até Meia-Noite
 // ===========================
 function formatDate(d) {
-    const days = ['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'];
-    const months = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+    const months = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
     return `${d.getDate()} de ${months[d.getMonth()]}`;
 }
 
@@ -44,8 +43,8 @@ function showUpsellModal(e) {
 function closeUpsellModal() {
     document.getElementById('upsellModal').classList.remove('active');
     document.body.style.overflow = '';
-    // Redirect to basic plan link
-    window.location.href = 'LINK_BASICO_AQUI';
+    // Redirect to basic plan
+    window.location.href = 'https://pay.lowify.com.br/checkout?product_id=DOfDfG';
 }
 
 // Close modal on overlay click
