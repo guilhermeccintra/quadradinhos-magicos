@@ -40,10 +40,16 @@ function showUpsellModal(e) {
     document.body.style.overflow = 'hidden';
 }
 
+// Apenas fecha o modal sem redirecionar (clicar fora)
+function dismissModal() {
+    document.getElementById('upsellModal').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Fecha e redireciona para o plano básico (botão "Não, obrigado")
 function closeUpsellModal() {
     document.getElementById('upsellModal').classList.remove('active');
     document.body.style.overflow = '';
-    // Redirect to basic plan
     window.location.href = 'https://pay.lowify.com.br/checkout?product_id=DOfDfG';
 }
 
@@ -51,8 +57,9 @@ function closeUpsellModal() {
 document.addEventListener('DOMContentLoaded', () => {
     initTopBar();
 
+    // Fecha ao clicar no overlay (fora do box), sem redirecionar
     document.getElementById('upsellModal').addEventListener('click', function(e) {
-        if (e.target === this) closeUpsellModal();
+        if (e.target === this) dismissModal();
     });
 
     // Scroll animations
